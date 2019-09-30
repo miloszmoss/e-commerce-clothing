@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import CartIcon from '../cartIcon/cartIcon';
 import { auth } from '../../firebase/firebaseUtils';
+import CartDropdown from '../cartDropdown/cartDropdown';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
@@ -9,6 +11,9 @@ import './Header.scss';
 
 const Header = ({ currentUser }) => {
   const handleSignOut = () => auth.signOut();
+
+  console.log(currentUser);
+
   return (
     <div className="header">
       <Link to="/" className="logo-container">
@@ -30,9 +35,15 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      <CartDropdown />
     </div>
   );
 };
 
-export default Header;
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header);
