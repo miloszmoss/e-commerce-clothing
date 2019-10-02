@@ -12,8 +12,6 @@ import './Header.scss';
 const Header = ({ currentUser, hidden }) => {
   const handleSignOut = () => auth.signOut();
 
-  console.log(currentUser);
-
   return (
     <div className="header">
       <Link to="/" className="logo-container">
