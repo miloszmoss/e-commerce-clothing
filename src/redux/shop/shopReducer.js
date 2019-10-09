@@ -1,3 +1,5 @@
+import { UPDATE_COLLECTIONS } from './shopTypes';
+
 const initialState = {
   hats: {
     id: 1,
@@ -248,6 +250,11 @@ const initialState = {
 
 const shopReducer = (state = initialState, action) => {
   switch (action.type) {
+    case UPDATE_COLLECTIONS:
+      return {
+        ...state,
+        collections: action.payload,
+      };
     default:
       return state;
   }
