@@ -9,7 +9,7 @@ import {
   converCollectionsSnapshotToMap,
 } from '../../firebase/firebaseUtils';
 
-export const fetchCollectionsStart = collectionsMap => ({
+export const fetchCollectionsStart = () => ({
   type: FETCH_COLLECTIONS_START,
 });
 
